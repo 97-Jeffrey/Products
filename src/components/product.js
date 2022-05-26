@@ -1,9 +1,11 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Product = ({ product }) =>{
 
+  const navigate = useNavigate();
   return(
     <>
       <Card style={{ width: '25rem' }}>
@@ -13,7 +15,13 @@ const Product = ({ product }) =>{
           <Card.Text>
             {product.category}
           </Card.Text>
-          <Button variant="primary"> Details</Button>
+          <Link 
+            className='btn btn-primary' 
+            to={`/products/${product.id}`}
+            state={{ product: product}}
+          >
+             Product Details
+          </Link>
         </Card.Body>
       </Card>
     </>

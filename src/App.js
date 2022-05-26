@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from  'react';
+import React from  'react';
 import './App.css';
-import axios from 'axios';
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Products from './components/products';
 import Header from './components/header';
+import ProductDetails from './components/productDetails';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 function App() {
-
-  const [products, setProducts] = useState([]);
-  useEffect(()=>{
-    
-    axios.get('https://fakestoreapi.com/products/')
-    .then(res=>setProducts(res.data))
-  },[])
 
   return (
     <div className="App">
       <Header />
-      <Products products ={products}/>
+      <BrowserRouter>
+        <Routes >
+          <Route path="/" element={<Products/>}/>
+          <Route path="/products" element={<Products/>}/>
+          <Route path="/products/:id" element={<ProductDetails/>}/>
+        </Routes>
+         {/* <Products products ={products}/> */}
+      </BrowserRouter>
     </div>
   );
 }

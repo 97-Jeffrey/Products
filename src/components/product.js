@@ -1,11 +1,10 @@
 import React from 'react';
 import { Card } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Product = ({ product }) =>{
 
-  const navigate = useNavigate();
   return(
     <>
       <Card style={{ width: '25rem' }}>
@@ -21,6 +20,13 @@ const Product = ({ product }) =>{
             state={{ product: product}}
           >
              Product Details
+          </Link>
+
+          <Link 
+            className='btn btn-primary' 
+            to={`/products/create-product`}
+          >
+            New Product 
           </Link>
         </Card.Body>
       </Card>

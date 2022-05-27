@@ -9,12 +9,13 @@ const Header =() =>{
         <Container>
         <Navbar.Brand href="/">Online Product App</Navbar.Brand>
         <Nav className="">
-          <Nav.Link href="/">Create A Product</Nav.Link>
+          <Nav.Link href="/products/create-product">Create A Product</Nav.Link>
           <Nav.Link href="#pricing">Pricing</Nav.Link>
         </Nav>
         </Container>
       </Navbar>
     </>
+    
   )
 }
 
